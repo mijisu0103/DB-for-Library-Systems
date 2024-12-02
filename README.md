@@ -7,6 +7,68 @@ Together, we designed and implemented database systems for the Collge Library Sy
 
 <br>
 
+## Task ☑️
+Design and implement an Oracle application that satisfies the requirements. This includes setting up a database schema and providing access methods to this in the form of queries and views. The steps for doing this include:
+
+- Creating a conceptual schema in the form of an ER or UML diagram.
+- Deriving a relational schema from the ER diagram.
+- Normalising the relations.
+- Implementing this schema by using SQL in Oracle.
+- Populating the database with a set of typical data. The data should be significant but
+manageable.
+- Defining specialised views which are appropriate to various sub-groups of users.
+- Defining SQL queries which could be used as canned queries for naive users.
+
+
+<br>
+
+## Requirements ❗️
+### General Functionality
+1. **Resource Management**:
+- Track various resources, including physical books, eBooks, and electronic devices (e.g., laptops, tablets).
+- Record details such as:
+  - Class number (if applicable).
+  - Number of copies available.
+  - Physical location (floor number and shelf number, if applicable).
+  - Digital access limits for eBooks.
+
+2. **Member Management**:
+- Maintain records of library members, including students and staff.
+- Enforce borrowing limits:
+  - Students: Maximum of 5 items at a time.
+  - Staff: Maximum of 10 items at a time.
+    
+3. **Loan and Reservation Management**:
+- Support different loan periods:
+  - Standard: 3 weeks.
+  - Short loan: 3 days.
+  - Library-only resources.
+-  Manage reservations:
+  - Notify the earliest reservation holder when an item becomes available.
+  - Handle unclaimed reservations and cancellation after three unsuccessful attempts.
+
+4. **Fines and Suspensions**:
+- Calculate overdue fines at a rate of £1 per day.
+- Suspend members owing more than £10 in fines until all items are returned and fines are paid.
+
+5. **Historical Records**:
+- Maintain records of previous loans to identify popular resources.
+
+6. **Suspension Tracking**:
+- Maintain a list of members currently suspended due to overdue loans or unpaid fines.
+
+<br>
+
+### Specific Records to Be Maintained
+- **Resources**: Details of all items in the library, including physical and digital resources.
+- **Library Members**: Information on all students and staff who are members.
+- **Reservations**: Current reservations and records of failed loan offers.
+- **Loans**: Active and overdue loans, including overdue statuses.
+- **Fines**: Amounts owed by members and suspension statuses.
+- **Loan History**: Historical data on previously borrowed resources.
+
+<br>
+
 ## Environment 👩🏻‍💻 
 
 <div align="center">
@@ -31,6 +93,30 @@ Together, we designed and implemented database systems for the Collge Library Sy
 ├── DB_Coursework_1_solution.sql 
 └── README.md
 ```
+
+<br>
+
+`DB_Coursework_1_solution.pdf` includes:
+- A list of all assumptions that were made during the design
+- The conceptual schema (ER diagram) with an explanation of how the model was derived
+- The relational database schema for the chosen application to show how the ER diagram was translated into the relational schema, identifying all primary and foreign keys in the design
+- The normalised design for the application with the explanation of why it is in 3rd Normal Form
+- A set of 4 view definitions with CREATE view commands and listings of the obtained output 
+- 12 meaningful and distinct SQL queries with a listing of the output generated
+
+<br>
+
+`DB_Coursework_1_solution.sql` includes:
+- A listing of all the CREATE table commands that were used to set up the database with declarative constraints in the statements to establish primary and foreign keys and perform validation checks on data to be entered
+- Triggers to:
+  - update overdue fine automatically
+  - update membership status to suspend members if their overdue fine is greater than £10
+  - ensure loan limit at a time
+  - update reservation status
+  - ensure no more than 3 offer rows created per reservation Id
+- The sample test data
+- A set of four CREATE view commands
+- 
 
 <br>
 
