@@ -116,7 +116,6 @@ manageable.
   - ensure no more than 3 offer rows created per reservation Id
 - The sample test data
 - A set of four CREATE view commands
-- 
 
 <br>
 
